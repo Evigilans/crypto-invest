@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://database:5432/postgres
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    show-sql: false
+
+management:
+  endpoints:
+    web.base-path: /
+    enabled-by-default: true
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+  health:
+    db.enabled: false
+    diskspace.enabled: true
+
+resilience4j:
+  ratelimiter:
+    instances:
+      controllerLimiter:
+        limitForPeriod: 5
+        limitRefreshPeriod: 1s
+        timeoutDuration: 1000ms
+
+logging:
+  level:
+    org.springframework.web: WARN
+    org.springframework.orm.jpa: INFO
+    org.springframework.transaction: INFO
+
+price-loader:
+  delay: 43200000 #every 12 hours
+  type: csv
+  folder: /prices
