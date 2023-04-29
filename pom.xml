@@ -9,10 +9,10 @@
         <relativePath/>
     </parent>
     <groupId>com.epam</groupId>
-    <artifactId>crypto-investment</artifactId>
+    <artifactId>crypto-invest</artifactId>
     <version>1.0.0</version>
-    <name>crypto-investment</name>
-    <description>crypto-investment</description>
+    <name>crypto-invest</name>
+    <description>crypto-invest</description>
     <properties>
         <java.version>17</java.version>
         <docker.image.prefix>ci</docker.image.prefix>

@@ -16,7 +16,7 @@ services:
           - "database"
 
   recommendationservice:
-    image: ci/crypto-investment:1.0.0
+    image: ci/crypto-invest:1.0.0
     depends_on:
       database:
         condition: service_started
